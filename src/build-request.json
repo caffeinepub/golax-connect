@@ -1,0 +1,302 @@
+{
+  "kind": "build_request",
+  "title": "Build Golax Connect social media platform",
+  "projectName": "Golax Connect",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement Internet Identity authentication system allowing users to sign up and log in securely",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "User signup and login using Internet Identity"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can authenticate using Internet Identity",
+        "Authentication state persists across sessions",
+        "Login/logout functionality works correctly"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create user profile system with name, bio, and profile photo fields that can be set during initial profile creation",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Profile creation with name, bio, and profile photo"
+        ]
+      },
+      "acceptanceCriteria": [
+        "New users can set their name, bio, and upload a profile photo",
+        "Profile data is stored securely in the backend",
+        "Profile information is associated with the user's Internet Identity"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Allow users to update and change their profile photo anytime from their profile settings",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Yes, users should be able to update and change their profile photo anytime from their profile settings"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile settings page includes option to upload new profile photo",
+        "Existing profile photo is replaced when user uploads a new one",
+        "Updated photo appears immediately across all views"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Implement one-way follow system where users can follow anyone without approval, and unfollow anytime",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Use a one-way follow system (similar to Instagram or Twitter). Users should be able to follow anyone without approval. Once followed, their posts will appear in the follower's news feed. Users should also be able to unfollow anytime."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can follow any other user with a single click without requiring approval",
+        "Follow relationship is immediately established in the backend",
+        "Users can unfollow at any time",
+        "Follow/unfollow actions update the UI immediately"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create post functionality allowing users to create posts with text content and upload up to 5 images per post",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3",
+          "msg-5"
+        ],
+        "quotes": [
+          "Create text posts",
+          "Upload images in posts",
+          "Allow users to upload up to 5 images per post"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can create posts with text content",
+        "Users can upload between 0 and 5 images per post",
+        "Image uploads are validated to not exceed the 5-image limit",
+        "Posts are stored with associated images in the backend"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Implement chronological news feed showing posts in newest-first order exclusively from users that the current user follows, excluding posts from users they don't follow",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3",
+          "msg-5"
+        ],
+        "quotes": [
+          "View news feed",
+          "View posts from followed users",
+          "Show posts in chronological order (newest first) from users that the current user follows. Do not include posts from users they don't follow. The feed should be clean and relevant."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Feed displays posts only from users the current user follows",
+        "Posts are sorted by creation time with newest posts first",
+        "Posts from unfollowed users do not appear in the feed",
+        "Feed updates when follow relationships change"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Implement like and unlike functionality for posts",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Like and unlike posts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can like any post",
+        "Users can unlike a post they previously liked",
+        "Like count updates immediately in the UI",
+        "Like state persists in the backend"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Implement comment system allowing users to comment on posts and view all comments on a post",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Comment on posts",
+          "View comments"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can add text comments to any post",
+        "All comments for a post are visible",
+        "Comments display author name and timestamp",
+        "Comments are stored and retrieved from backend"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement user search functionality allowing users to search for other users by name",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Search users by name"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Search page includes a search input field",
+        "Searching returns users whose names match the query",
+        "Search results display user profile photos and names",
+        "Users can navigate to profiles from search results"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Create profile page displaying profile photo, name, bio, followers count, following count, and a grid of the user's posts",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Include a profile page showing: Profile photo, Name, Bio, Followers count, Following count, User posts grid"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Profile page shows the user's profile photo prominently",
+        "Name and bio are displayed clearly",
+        "Follower count and following count are visible",
+        "User's posts are displayed in a grid layout",
+        "Profile page works for both the current user and other users"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement Facebook-like layout with top navigation bar, feed page, profile page, and search page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Include a clean Facebook-like layout with: Top navigation bar, Feed page, Profile page, Search page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Top navigation bar is present on all pages",
+        "Navigation includes links to Feed, Profile, and Search pages",
+        "Layout resembles Facebook's clean structure",
+        "Navigation is consistent across all pages"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Apply modern blue and white professional social media design theme throughout the application",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Use modern blue and white professional social media design"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Primary color scheme uses blue and white",
+        "Design is clean and professional",
+        "Visual style is consistent across all pages",
+        "UI feels modern and polished"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Display the platform name 'Golax Connect' consistently throughout the application including navigation bar and branding elements",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "The platform name should be displayed everywhere as 'Golax Connect'"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Application name 'Golax Connect' appears in the navigation bar",
+        "Branding is consistent across all pages",
+        "Name is spelled correctly as 'Golax Connect' everywhere"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Ensure the application is fully responsive and works well on both mobile and desktop devices",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-3"
+        ],
+        "quotes": [
+          "Responsive design for mobile and desktop"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layout adapts to mobile screen sizes",
+        "Layout adapts to desktop screen sizes",
+        "Touch interactions work on mobile devices",
+        "All features are accessible on both mobile and desktop"
+      ]
+    }
+  ],
+  "constraints": [
+    "Use Internet Identity for authentication, not Firebase or other third-party auth",
+    "Backend must use Motoko on Internet Computer",
+    "Frontend must use React with TypeScript",
+    "Limit post images to maximum 5 per post",
+    "Follow system must be one-way without approval requirements",
+    "News feed must only show posts from followed users in chronological order"
+  ],
+  "nonGoals": [
+    "Two-way friend request system",
+    "Video upload or playback features",
+    "Real-time chat or messaging",
+    "Stories feature",
+    "Reels or short video content",
+    "Push notifications",
+    "Native mobile app or APK generation",
+    "Firebase integration",
+    "Posts from users not followed appearing in feed",
+    "Algorithm-based feed ranking"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

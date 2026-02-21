@@ -1,0 +1,21 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, authentication flow, profile setup modal integration, and theme provider wrapper.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including profile management, posts, likes, comments, follow/unfollow, and search functionality.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component providing consistent page structure with top navigation and footer across all pages.",
+  "frontend/src/components/TopNavigation.tsx": "Responsive navigation bar with Golax Connect branding, navigation links, login button, and mobile menu support.",
+  "frontend/src/components/LoginButton.tsx": "Authentication button component handling Internet Identity login/logout with loading states.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for new users to set up their profile with name, bio, and optional profile picture on first login.",
+  "frontend/src/components/CreatePostForm.tsx": "Post creation form allowing users to write text content and upload up to 5 images with preview and removal functionality.",
+  "frontend/src/components/PostCard.tsx": "Card component displaying individual posts with author info, content, images, likes, and comments section.",
+  "frontend/src/components/LikeButton.tsx": "Interactive like button showing like count and filled/unfilled heart icon based on user's like status.",
+  "frontend/src/components/CommentSection.tsx": "Collapsible comment section with comment list and input form for adding new comments to posts.",
+  "frontend/src/components/CommentItem.tsx": "Individual comment display component showing author avatar, name, content, and timestamp.",
+  "frontend/src/components/FollowButton.tsx": "Follow/unfollow button component for user profiles with loading states and icon indicators.",
+  "frontend/src/components/UserSearchResultCard.tsx": "Clickable card displaying user search results with avatar, name, and bio preview.",
+  "frontend/src/pages/FeedPage.tsx": "Main feed page displaying chronological posts from followed users with post creation form at the top.",
+  "frontend/src/pages/SearchPage.tsx": "User search page with debounced search input and results list displaying matching user profiles.",
+  "frontend/src/pages/ProfilePage.tsx": "User profile page showing avatar, name, bio, stats, follow button, and grid of user's posts.",
+  "frontend/src/pages/ProfileSettingsPage.tsx": "Profile settings page allowing users to update their profile picture with current profile information display.",
+  "frontend/src/index.css": "Global styles with OKLCH-based blue and white color system for light and dark modes matching Facebook-style social media aesthetic.",
+  "frontend/tailwind.config.js": "Tailwind configuration with blue-themed color palette, custom shadows, and professional social media styling."
+}

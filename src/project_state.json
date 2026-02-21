@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Golax Connect - A modern web-based social media platform with Internet Identity authentication, one-way follow system, chronological news feed from followed users, posts with up to 5 images, likes, comments, user search, and profile management. Features a clean Facebook-like blue and white UI with top navigation, feed, profile, and search pages.",
+  "architectural_notes": [
+    "Use Motoko backend on Internet Computer for all data storage",
+    "Store user profiles with name, bio, profile photo URL",
+    "Implement one-way follow relationships (follower -> following)",
+    "Posts support up to 5 images per post",
+    "News feed queries posts from followed users only, sorted chronologically",
+    "Track follower and following counts for each user",
+    "Use Internet Identity for authentication"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-implement-internet-identity-authentication-system-allowing-users-to-sign-up-and-log-in-securely",
+      "title": "Implement Internet Identity authentication system allowing users to sign up and log in securely",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-user-profile-system-with-name-bio-and-profile-photo-fields-that-can-be-set-during-initial-profile-creation",
+      "title": "Create user profile system with name, bio, and profile photo fields that can be set during initial profile creation",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-allow-users-to-update-and-change-their-profile-photo-anytime-from-their-profile-settings",
+      "title": "Allow users to update and change their profile photo anytime from their profile settings",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-one-way-follow-system-where-users-can-follow-anyone-without-approval-and-unfollow-anytime",
+      "title": "Implement one-way follow system where users can follow anyone without approval, and unfollow anytime",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-post-functionality-allowing-users-to-create-posts-with-text-content-and-upload-up-to-5-images-per-post",
+      "title": "Create post functionality allowing users to create posts with text content and upload up to 5 images per post",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-chronological-news-feed-showing-posts-in-newest-first-order-exclusively-from-users-that-the-current-user-follows-excluding-posts-from-users-they-don-t-follow",
+      "title": "Implement chronological news feed showing posts in newest-first order exclusively from users that the current user follows, excluding posts from users they don't follow",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-like-and-unlike-functionality-for-posts",
+      "title": "Implement like and unlike functionality for posts",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-comment-system-allowing-users-to-comment-on-posts-and-view-all-comments-on-a-post",
+      "title": "Implement comment system allowing users to comment on posts and view all comments on a post",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-user-search-functionality-allowing-users-to-search-for-other-users-by-name",
+      "title": "Implement user search functionality allowing users to search for other users by name",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-profile-page-displaying-profile-photo-name-bio-followers-count-following-count-and-a-grid-of-the-user-s-posts",
+      "title": "Create profile page displaying profile photo, name, bio, followers count, following count, and a grid of the user's posts",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-facebook-like-layout-with-top-navigation-bar-feed-page-profile-page-and-search-page",
+      "title": "Implement Facebook-like layout with top navigation bar, feed page, profile page, and search page",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-modern-blue-and-white-professional-social-media-design-theme-throughout-the-application",
+      "title": "Apply modern blue and white professional social media design theme throughout the application",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-display-the-platform-name-golax-connect-consistently-throughout-the-application-including-navigation-bar-and-branding-elements",
+      "title": "Display the platform name 'Golax Connect' consistently throughout the application including navigation bar and branding elements",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-application-is-fully-responsive-and-works-well-on-both-mobile-and-desktop-devices",
+      "title": "Ensure the application is fully responsive and works well on both mobile and desktop devices",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Internet Identity authentication with profile setup (name, bio, profile photo)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "One-way follow system (follow/unfollow without approval)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Create posts with text and up to 5 images",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Chronological news feed showing posts from followed users only (newest first)",
+      "reqIds": [
+        "AR-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Like and unlike posts",
+      "reqIds": [
+        "AR-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Comment system on posts",
+      "reqIds": [
+        "AR-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "User search by name",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Profile page with photo, name, bio, follower/following counts, and posts grid",
+      "reqIds": [
+        "AR-1",
+        "AR-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Update profile photo anytime from profile settings",
+      "reqIds": [
+        "AR-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Facebook-like layout with top navigation bar, feed page, profile page, and search page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Modern blue and white professional social media design, responsive for mobile and desktop",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Golax Connect",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

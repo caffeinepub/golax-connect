@@ -1,0 +1,302 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-internet-identity-authentication-system-allowing-users-to-sign-up-and-log-in-securely",
+      "featureTitle": "Implement Internet Identity authentication system allowing users to sign up and log in securely",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/LoginButton.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-user-profile-system-with-name-bio-and-profile-photo-fields-that-can-be-set-during-initial-profile-creation",
+      "featureTitle": "Create user profile system with name, bio, and profile photo fields that can be set during initial profile creation",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-allow-users-to-update-and-change-their-profile-photo-anytime-from-their-profile-settings",
+      "featureTitle": "Allow users to update and change their profile photo anytime from their profile settings",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ProfileSettingsPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-one-way-follow-system-where-users-can-follow-anyone-without-approval-and-unfollow-anytime",
+      "featureTitle": "Implement one-way follow system where users can follow anyone without approval, and unfollow anytime",
+      "files": [
+        "frontend/src/components/FollowButton.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-post-functionality-allowing-users-to-create-posts-with-text-content-and-upload-up-to-5-images-per-post",
+      "featureTitle": "Create post functionality allowing users to create posts with text content and upload up to 5 images per post",
+      "files": [
+        "frontend/src/components/CreatePostForm.tsx",
+        "frontend/src/pages/FeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-chronological-news-feed-showing-posts-in-newest-first-order-exclusively-from-users-that-the-current-user-follows-excluding-posts-from-users-they-don-t-follow",
+      "featureTitle": "Implement chronological news feed showing posts in newest-first order exclusively from users that the current user follows, excluding posts from users they don't follow",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PostCard.tsx",
+        "frontend/src/pages/FeedPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-like-and-unlike-functionality-for-posts",
+      "featureTitle": "Implement like and unlike functionality for posts",
+      "files": [
+        "frontend/src/components/LikeButton.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-comment-system-allowing-users-to-comment-on-posts-and-view-all-comments-on-a-post",
+      "featureTitle": "Implement comment system allowing users to comment on posts and view all comments on a post",
+      "files": [
+        "frontend/src/components/CommentItem.tsx",
+        "frontend/src/components/CommentSection.tsx",
+        "frontend/src/components/PostCard.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-user-search-functionality-allowing-users-to-search-for-other-users-by-name",
+      "featureTitle": "Implement user search functionality allowing users to search for other users by name",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/UserSearchResultCard.tsx",
+        "frontend/src/pages/SearchPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-profile-page-displaying-profile-photo-name-bio-followers-count-following-count-and-a-grid-of-the-user-s-posts",
+      "featureTitle": "Create profile page displaying profile photo, name, bio, followers count, following count, and a grid of the user's posts",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ProfilePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-facebook-like-layout-with-top-navigation-bar-feed-page-profile-page-and-search-page",
+      "featureTitle": "Implement Facebook-like layout with top navigation bar, feed page, profile page, and search page",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/TopNavigation.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-modern-blue-and-white-professional-social-media-design-theme-throughout-the-application",
+      "featureTitle": "Apply modern blue and white professional social media design theme throughout the application",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-display-the-platform-name-golax-connect-consistently-throughout-the-application-including-navigation-bar-and-branding-elements",
+      "featureTitle": "Display the platform name 'Golax Connect' consistently throughout the application including navigation bar and branding elements",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/components/TopNavigation.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-application-is-fully-responsive-and-works-well-on-both-mobile-and-desktop-devices",
+      "featureTitle": "Ensure the application is fully responsive and works well on both mobile and desktop devices",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/PostCard.tsx",
+        "frontend/src/components/TopNavigation.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

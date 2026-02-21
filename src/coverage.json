@@ -1,0 +1,336 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-21T10:14:48.040Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 14,
+    "implemented": 14,
+    "items": [
+      {
+        "id": "REQ-1",
+        "summary": "Implement Internet Identity authentication system allowing users to sign up and log in securely",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/LoginButton.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/LoginButton.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-10",
+        "summary": "Create profile page displaying profile photo, name, bio, followers count, following count, and a grid of the user's posts",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ProfilePage.tsx",
+          "frontend/src/components/PostGrid.tsx",
+          "frontend/src/hooks/useUserProfile.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ProfilePage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-11",
+        "summary": "Implement Facebook-like layout with top navigation bar, feed page, profile page, and search page",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/TopNavigation.tsx",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/TopNavigation.tsx",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-12",
+        "summary": "Apply modern blue and white professional social media design theme throughout the application",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ],
+        "matchedFiles": [
+          "frontend/src/index.css",
+          "frontend/tailwind.config.js"
+        ]
+      },
+      {
+        "id": "REQ-13",
+        "summary": "Display the platform name 'Golax Connect' consistently throughout the application including navigation bar and branding elements",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/TopNavigation.tsx",
+          "frontend/index.html"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/TopNavigation.tsx",
+          "frontend/index.html"
+        ]
+      },
+      {
+        "id": "REQ-14",
+        "summary": "Ensure the application is fully responsive and works well on both mobile and desktop devices",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/TopNavigation.tsx",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/components/PostGrid.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/TopNavigation.tsx",
+          "frontend/src/components/Layout.tsx",
+          "frontend/src/components/PostCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-2",
+        "summary": "Create user profile system with name, bio, and profile photo fields that can be set during initial profile creation",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/ProfileSetupModal.tsx",
+          "frontend/src/hooks/useProfileSetup.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/ProfileSetupModal.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-3",
+        "summary": "Allow users to update and change their profile photo anytime from their profile settings",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/ProfileSettingsPage.tsx",
+          "frontend/src/hooks/useUpdateProfilePicture.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/ProfileSettingsPage.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-4",
+        "summary": "Implement one-way follow system where users can follow anyone without approval, and unfollow anytime",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/FollowButton.tsx",
+          "frontend/src/hooks/useFollowUser.ts",
+          "frontend/src/hooks/useUnfollowUser.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/FollowButton.tsx"
+        ]
+      },
+      {
+        "id": "REQ-5",
+        "summary": "Create post functionality allowing users to create posts with text content and upload up to 5 images per post",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CreatePostForm.tsx",
+          "frontend/src/hooks/useCreatePost.ts",
+          "frontend/src/pages/FeedPage.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CreatePostForm.tsx",
+          "frontend/src/pages/FeedPage.tsx"
+        ]
+      },
+      {
+        "id": "REQ-6",
+        "summary": "Implement chronological news feed showing posts in newest-first order exclusively from users that the current user follows, excluding posts from users they don't follow",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/FeedPage.tsx",
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/hooks/useNewsFeed.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/FeedPage.tsx",
+          "frontend/src/components/PostCard.tsx",
+          "frontend/src/App.tsx"
+        ]
+      },
+      {
+        "id": "REQ-7",
+        "summary": "Implement like and unlike functionality for posts",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/LikeButton.tsx",
+          "frontend/src/hooks/useLikePost.ts",
+          "frontend/src/hooks/useUnlikePost.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/LikeButton.tsx"
+        ]
+      },
+      {
+        "id": "REQ-8",
+        "summary": "Implement comment system allowing users to comment on posts and view all comments on a post",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/CommentSection.tsx",
+          "frontend/src/components/CommentItem.tsx",
+          "frontend/src/hooks/useAddComment.ts",
+          "frontend/src/hooks/useComments.ts",
+          "frontend/src/components/PostCard.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/CommentSection.tsx",
+          "frontend/src/components/CommentItem.tsx",
+          "frontend/src/components/PostCard.tsx"
+        ]
+      },
+      {
+        "id": "REQ-9",
+        "summary": "Implement user search functionality allowing users to search for other users by name",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/SearchPage.tsx",
+          "frontend/src/components/UserSearchResultCard.tsx",
+          "frontend/src/hooks/useSearchUsers.ts",
+          "frontend/src/App.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/SearchPage.tsx",
+          "frontend/src/components/UserSearchResultCard.tsx",
+          "frontend/src/App.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "backend/authorization/MixinAuthorization.mo",
+    "backend/authorization/access-control.mo",
+    "backend/blob-storage/Mixin.mo",
+    "backend/blob-storage/Storage.mo",
+    "backend/main.mo",
+    "build-request.json",
+    "build-template/Dockerfile",
+    "build-template/LICENSE",
+    "build-template/README.md",
+    "build-template/deploy.sh",
+    "build-template/icp.yaml",
+    "build-template/package.json",
+    "build-template/pnpm-lock.yaml",
+    "build-template/pnpm-workspace.yaml",
+    "build-template/scripts/prune-unused-images.js",
+    "build-template/scripts/resize-images.js",
+    "build-template/src/backend/canister.yaml",
+    "build-template/src/backend/system-idl/aaaaa-aa.did",
+    "build-template/src/frontend/canister.yaml",
+    "build-template/src/frontend/components.json",
+    "build-template/src/frontend/env.json",
+    "build-template/src/frontend/eslint-rules/no-bigint-in-query-keys.js",
+    "build-template/src/frontend/eslint-rules/require-internet-identity-provider.js",
+    "build-template/src/frontend/eslint.config.js",
+    "build-template/src/frontend/package.json",
+    "build-template/src/frontend/postcss.config.js",
+    "build-template/src/frontend/src/components/ui/accordion.tsx",
+    "build-template/src/frontend/src/components/ui/alert-dialog.tsx",
+    "build-template/src/frontend/src/components/ui/alert.tsx",
+    "build-template/src/frontend/src/components/ui/aspect-ratio.tsx",
+    "build-template/src/frontend/src/components/ui/avatar.tsx",
+    "build-template/src/frontend/src/components/ui/badge.tsx",
+    "build-template/src/frontend/src/components/ui/breadcrumb.tsx",
+    "build-template/src/frontend/src/components/ui/button.tsx",
+    "build-template/src/frontend/src/components/ui/calendar.tsx",
+    "build-template/src/frontend/src/components/ui/card.tsx",
+    "build-template/src/frontend/src/components/ui/carousel.tsx",
+    "build-template/src/frontend/src/components/ui/chart.tsx",
+    "build-template/src/frontend/src/components/ui/checkbox.tsx",
+    "build-template/src/frontend/src/components/ui/collapsible.tsx",
+    "build-template/src/frontend/src/components/ui/command.tsx",
+    "build-template/src/frontend/src/components/ui/context-menu.tsx",
+    "build-template/src/frontend/src/components/ui/dialog.tsx",
+    "build-template/src/frontend/src/components/ui/drawer.tsx",
+    "build-template/src/frontend/src/components/ui/dropdown-menu.tsx",
+    "build-template/src/frontend/src/components/ui/form.tsx",
+    "build-template/src/frontend/src/components/ui/hover-card.tsx",
+    "build-template/src/frontend/src/components/ui/input-otp.tsx",
+    "build-template/src/frontend/src/components/ui/input.tsx",
+    "build-template/src/frontend/src/components/ui/label.tsx",
+    "build-template/src/frontend/src/components/ui/menubar.tsx",
+    "build-template/src/frontend/src/components/ui/navigation-menu.tsx",
+    "build-template/src/frontend/src/components/ui/pagination.tsx",
+    "build-template/src/frontend/src/components/ui/popover.tsx",
+    "build-template/src/frontend/src/components/ui/progress.tsx",
+    "build-template/src/frontend/src/components/ui/radio-group.tsx",
+    "build-template/src/frontend/src/components/ui/resizable.tsx",
+    "build-template/src/frontend/src/components/ui/scroll-area.tsx",
+    "build-template/src/frontend/src/components/ui/select.tsx",
+    "build-template/src/frontend/src/components/ui/separator.tsx",
+    "build-template/src/frontend/src/components/ui/sheet.tsx",
+    "build-template/src/frontend/src/components/ui/sidebar.tsx",
+    "build-template/src/frontend/src/components/ui/skeleton.tsx",
+    "build-template/src/frontend/src/components/ui/slider.tsx",
+    "build-template/src/frontend/src/components/ui/sonner.tsx",
+    "build-template/src/frontend/src/components/ui/switch.tsx",
+    "build-template/src/frontend/src/components/ui/table.tsx",
+    "build-template/src/frontend/src/components/ui/tabs.tsx",
+    "build-template/src/frontend/src/components/ui/textarea.tsx",
+    "build-template/src/frontend/src/components/ui/toggle-group.tsx",
+    "build-template/src/frontend/src/components/ui/toggle.tsx",
+    "build-template/src/frontend/src/components/ui/tooltip.tsx",
+    "build-template/src/frontend/src/hooks/use-mobile.tsx",
+    "build-template/src/frontend/src/lib/utils.ts",
+    "build-template/src/frontend/tsconfig.json",
+    "build-template/src/frontend/vite.config.js",
+    "build-template/tsconfig.json",
+    "caffeine.lock.json",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/CommentItem.tsx",
+    "frontend/src/components/CommentSection.tsx",
+    "frontend/src/components/CreatePostForm.tsx",
+    "frontend/src/components/FollowButton.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/LikeButton.tsx",
+    "frontend/src/components/LoginButton.tsx",
+    "frontend/src/components/PostCard.tsx",
+    "frontend/src/components/ProfileSetupModal.tsx",
+    "frontend/src/components/TopNavigation.tsx",
+    "frontend/src/components/UserSearchResultCard.tsx",
+    "frontend/src/config.ts",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/FeedPage.tsx",
+    "frontend/src/pages/ProfilePage.tsx",
+    "frontend/src/pages/ProfileSettingsPage.tsx",
+    "frontend/src/pages/SearchPage.tsx",
+    "frontend/src/ui-summary.json",
+    "frontend/src/utils/StorageClient.ts",
+    "frontend/src/utils/urlParams.ts",
+    "frontend/tailwind.config.js",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

@@ -1,0 +1,397 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Golax Connect Social Media Platform - Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement Internet Identity authentication UI with login/logout functionality and session persistence",
+      "acceptanceCriteria": [
+        "Users can authenticate using Internet Identity",
+        "Authentication state persists across sessions",
+        "Login/logout functionality works correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create login button component using the authorization component's authentication system. Use the useInternetIdentity hook to manage login/logout state. Verify the authorization component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Integrate Internet Identity authentication wrapper and route guards. Ensure users must be logged in before accessing application data. Wire the LoginButton component into the navigation bar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Create profile setup UI for new users to set name, bio, and upload profile photo during initial login",
+      "acceptanceCriteria": [
+        "New users can set their name, bio, and upload a profile photo",
+        "Profile data is stored securely in the backend",
+        "Profile information is associated with the user's Internet Identity"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create modal component for initial profile setup that appears when getCallerUserProfile returns null. Include form fields for name (required), bio (required), and profile photo upload (optional). Use ExternalBlob from blob-storage component for profile photo handling. Verify the blob-storage component's usage instructions before implementing. Implement profile setup modal flash prevention using the pattern from authorization component usage."
+        },
+        {
+          "path": "frontend/src/hooks/useProfileSetup.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage profile setup flow. Check if user has profile using getCallerUserProfile, handle saveCallerUserProfile call with name, bio, and optional profile picture. Use the authorization component's useGetCallerUserProfile pattern to prevent modal flash."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire ProfileSetupModal to show after login when user profile is null. Use the showProfileSetup pattern from authorization component usage."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create profile settings page allowing users to update their profile photo anytime",
+      "acceptanceCriteria": [
+        "Profile settings page includes option to upload new profile photo",
+        "Existing profile photo is replaced when user uploads a new one",
+        "Updated photo appears immediately across all views"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProfileSettingsPage.tsx",
+          "operation": "create",
+          "description": "Create profile settings page with profile photo upload functionality. Display current profile photo and provide upload button. Call updateProfilePicture backend method with new ExternalBlob. Use the blob-storage component for file upload handling. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useUpdateProfilePicture.ts",
+          "operation": "create",
+          "description": "Create mutation hook to handle profile picture updates. Call updateProfilePicture backend method and invalidate relevant queries to refresh UI."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ProfileSettingsPage at /settings and wire navigation link in the top navigation bar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement one-way follow/unfollow UI with immediate state updates",
+      "acceptanceCriteria": [
+        "Users can follow any other user with a single click without requiring approval",
+        "Follow relationship is immediately established in the backend",
+        "Users can unfollow at any time",
+        "Follow/unfollow actions update the UI immediately"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/FollowButton.tsx",
+          "operation": "create",
+          "description": "Create follow/unfollow button component. Display 'Follow' or 'Unfollow' based on current follow state. Call followUser or unfollowUser backend methods. Update UI optimistically with query invalidation."
+        },
+        {
+          "path": "frontend/src/hooks/useFollowUser.ts",
+          "operation": "create",
+          "description": "Create mutation hook for following users. Call followUser backend method and invalidate user profile queries to update follower counts."
+        },
+        {
+          "path": "frontend/src/hooks/useUnfollowUser.ts",
+          "operation": "create",
+          "description": "Create mutation hook for unfollowing users. Call unfollowUser backend method and invalidate user profile queries to update follower counts."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create post creation UI allowing text content and up to 5 image uploads per post",
+      "acceptanceCriteria": [
+        "Users can create posts with text content",
+        "Users can upload between 0 and 5 images per post",
+        "Image uploads are validated to not exceed the 5-image limit",
+        "Posts are stored with associated images in the backend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CreatePostForm.tsx",
+          "operation": "create",
+          "description": "Create post creation form with text area for content and multiple image upload input. Validate maximum 5 images before submission. Use ExternalBlob from blob-storage component for image handling with upload progress tracking. Verify the blob-storage component's usage instructions before implementing. Call createPost backend method with content and images array."
+        },
+        {
+          "path": "frontend/src/hooks/useCreatePost.ts",
+          "operation": "create",
+          "description": "Create mutation hook to handle post creation. Convert uploaded files to ExternalBlob instances, call createPost backend method, and invalidate news feed queries."
+        },
+        {
+          "path": "frontend/src/pages/FeedPage.tsx",
+          "operation": "modify",
+          "description": "Wire CreatePostForm component at the top of the feed page above the post list."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Implement chronological news feed showing only posts from followed users, newest first",
+      "acceptanceCriteria": [
+        "Feed displays posts only from users the current user follows",
+        "Posts are sorted by creation time with newest posts first",
+        "Posts from unfollowed users do not appear in the feed",
+        "Feed updates when follow relationships change"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FeedPage.tsx",
+          "operation": "create",
+          "description": "Create feed page that displays posts from followed users in chronological order. Fetch posts using getNewsFeed backend method. Display each post using PostCard component."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "create",
+          "description": "Create post card component to display individual posts. Show author profile photo and name, post content, post images (using ExternalBlob.getDirectURL() for streaming and caching), timestamp, like count, and comment count. Include LikeButton and comment section. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useNewsFeed.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch news feed. Call getNewsFeed backend method and return posts sorted by timestamp descending."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for FeedPage at /feed and set it as the default authenticated route. Wire navigation link in the top navigation bar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement like/unlike functionality with immediate UI feedback",
+      "acceptanceCriteria": [
+        "Users can like any post",
+        "Users can unlike a post they previously liked",
+        "Like count updates immediately in the UI",
+        "Like state persists in the backend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LikeButton.tsx",
+          "operation": "create",
+          "description": "Create like button component. Display heart icon (filled if liked, outline if not). Show like count. Call likePost or unlikePost backend methods. Update UI optimistically."
+        },
+        {
+          "path": "frontend/src/hooks/useLikePost.ts",
+          "operation": "create",
+          "description": "Create mutation hook for liking posts. Call likePost backend method and update post queries optimistically."
+        },
+        {
+          "path": "frontend/src/hooks/useUnlikePost.ts",
+          "operation": "create",
+          "description": "Create mutation hook for unliking posts. Call unlikePost backend method and update post queries optimistically."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Implement comment system UI for adding and viewing comments on posts",
+      "acceptanceCriteria": [
+        "Users can add text comments to any post",
+        "All comments for a post are visible",
+        "Comments display author name and timestamp",
+        "Comments are stored and retrieved from backend"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CommentSection.tsx",
+          "operation": "create",
+          "description": "Create comment section component. Display list of comments with author name and timestamp. Include text input and submit button for adding new comments. Call addComment backend method."
+        },
+        {
+          "path": "frontend/src/components/CommentItem.tsx",
+          "operation": "create",
+          "description": "Create comment item component to display individual comments. Show author profile photo, name, comment content, and timestamp."
+        },
+        {
+          "path": "frontend/src/hooks/useAddComment.ts",
+          "operation": "create",
+          "description": "Create mutation hook for adding comments. Call addComment backend method with postId and content, then invalidate comments queries."
+        },
+        {
+          "path": "frontend/src/hooks/useComments.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch comments for a post. Call getComments backend method with postId."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "modify",
+          "description": "Wire CommentSection component into PostCard to display and add comments."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Implement user search functionality by name with result navigation",
+      "acceptanceCriteria": [
+        "Search page includes a search input field",
+        "Searching returns users whose names match the query",
+        "Search results display user profile photos and names",
+        "Users can navigate to profiles from search results"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SearchPage.tsx",
+          "operation": "create",
+          "description": "Create search page with search input field and results list. Call searchUsers backend method with search term. Display results as UserSearchResultCard components with profile photos and names. Wire click handlers to navigate to user profiles."
+        },
+        {
+          "path": "frontend/src/components/UserSearchResultCard.tsx",
+          "operation": "create",
+          "description": "Create user search result card component. Display user profile photo (using ExternalBlob.getDirectURL() if available), name, and bio preview. Make card clickable to navigate to user profile. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useSearchUsers.ts",
+          "operation": "create",
+          "description": "Create query hook for searching users. Call searchUsers backend method with search term. Debounce search input to avoid excessive backend calls."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for SearchPage at /search and wire navigation link in the top navigation bar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Create user profile page displaying profile info, stats, and posts grid",
+      "acceptanceCriteria": [
+        "Profile page shows the user's profile photo prominently",
+        "Name and bio are displayed clearly",
+        "Follower count and following count are visible",
+        "User's posts are displayed in a grid layout",
+        "Profile page works for both the current user and other users"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProfilePage.tsx",
+          "operation": "create",
+          "description": "Create profile page that displays user profile information and posts. Fetch user profile using getUserProfile backend method. Show profile photo (using ExternalBlob.getDirectURL()), name, bio, followers count, and following count. Display user posts in a grid layout. Include FollowButton for other users' profiles. Include edit/settings button for current user's profile. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/PostGrid.tsx",
+          "operation": "create",
+          "description": "Create post grid component to display posts in a grid layout. Show post images as thumbnails (using ExternalBlob.getDirectURL() for first image if available). Make each grid item clickable to view full post details. Verify the blob-storage component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Create query hook to fetch user profile by principal. Call getUserProfile backend method."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ProfilePage at /profile/:principalId and wire navigation link to current user profile in the top navigation bar."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement Facebook-like layout with top navigation and consistent page structure",
+      "acceptanceCriteria": [
+        "Top navigation bar is present on all pages",
+        "Navigation includes links to Feed, Profile, and Search pages",
+        "Layout resembles Facebook's clean structure",
+        "Navigation is consistent across all pages"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TopNavigation.tsx",
+          "operation": "create",
+          "description": "Create top navigation bar component with Golax Connect branding on the left, navigation links (Feed, Search, Profile) in the center, and LoginButton on the right. Use blue and white color scheme. Make responsive for mobile and desktop."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout wrapper component with TopNavigation at the top and main content area below. Apply consistent padding and max-width for centered content similar to Facebook layout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure TopNavigation appears on all pages. Set up routing structure with Feed as default authenticated page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Apply modern blue and white professional social media design theme",
+      "acceptanceCriteria": [
+        "Primary color scheme uses blue and white",
+        "Design is clean and professional",
+        "Visual style is consistent across all pages",
+        "UI feels modern and polished"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define blue and white color theme using CSS custom properties. Set primary blue colors for buttons, links, and interactive elements. Use white and light gray for backgrounds. Ensure clean, modern styling throughout."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind theme with blue and white color palette. Define primary blue color variants, neutral grays for backgrounds, and consistent spacing and typography scales for a professional social media aesthetic."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Display Golax Connect branding consistently in navigation and throughout app",
+      "acceptanceCriteria": [
+        "Application name 'Golax Connect' appears in the navigation bar",
+        "Branding is consistent across all pages",
+        "Name is spelled correctly as 'Golax Connect' everywhere"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TopNavigation.tsx",
+          "operation": "modify",
+          "description": "Display 'Golax Connect' prominently in the left side of the top navigation bar. Use blue color for branding text. Ensure the name is clickable and navigates to feed page."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Update page title to 'Golax Connect' and ensure meta tags reference the correct application name."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Ensure responsive design works on mobile and desktop devices",
+      "acceptanceCriteria": [
+        "Layout adapts to mobile screen sizes",
+        "Layout adapts to desktop screen sizes",
+        "Touch interactions work on mobile devices",
+        "All features are accessible on both mobile and desktop"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TopNavigation.tsx",
+          "operation": "modify",
+          "description": "Make navigation responsive with hamburger menu for mobile, full navigation bar for desktop. Use Tailwind responsive breakpoints."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Implement responsive layout with appropriate padding and max-width that adapts to mobile and desktop screens. Use Tailwind responsive utilities."
+        },
+        {
+          "path": "frontend/src/components/PostCard.tsx",
+          "operation": "modify",
+          "description": "Ensure post cards are responsive with images that scale appropriately on mobile and desktop. Stack elements vertically on mobile, adjust spacing for desktop."
+        },
+        {
+          "path": "frontend/src/components/PostGrid.tsx",
+          "operation": "modify",
+          "description": "Make post grid responsive with 1 column on mobile, 2-3 columns on tablet, and 3-4 columns on desktop using CSS Grid and Tailwind responsive utilities."
+        }
+      ]
+    }
+  ]
+}
